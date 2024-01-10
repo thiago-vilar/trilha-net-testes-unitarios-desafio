@@ -37,59 +37,68 @@ public class ValidacoesListaTests
     [Fact]
     public void NaoDeveConterONumero10NaLista()
     {
-        //TODO: Implementar método de teste
-
         // Arrange
-        var lista = new List<int> { 5, -1, -8, 9 };
+        var lista = new List<int> { 1, 2, 9 };
         var numeroParaProcurar = 10;
 
         // Act
+        var resultado = _validacoes.ListaContemDeterminadoNumero(lista, numeroParaProcurar);
 
         // Assert
-    }
-
-    //TODO: Corrigir a anotação [Fact]
-    public void DeveMultiplicarOsElementosDaListaPor2()
-    {
-        //TODO: Implementar método de teste
-
-        // Arrange
-        var lista = new List<int> { 5, 7, 8, 9 };
-        var resultadoEsperado = new List<int> { 10, 14, 16, 18 };
-        
-        // Act
-
-        // Assert
+        Assert.False(resultado);
     }
 
     [Fact]
-    public void DeveRetornar9ComoMaiorNumeroDaLista()
+
+    public void DeveMultiplicarOsElementosDaListaPor2()
     {
-        //TODO: Implementar método de teste
-
         // Arrange
-        var lista = new List<int> { 5, -1, -8, 9 };
-
+        var lista = new List<int> { 5, 7, 8, 9 };
+        var multiplicador = 2;
+        var resultadoEsperado = new List<int> { 10, 14, 16, 18 };
+        
         // Act
+        var resultado = _validacoes.MultiplicarNumerosLista(lista, multiplicador);
 
         // Assert
-        //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(9, 9);
+        Assert.Equal(resultadoEsperado, resultado);
+    }
+
+     [Fact]
+    public void DeveRetornar9ComoMaiorNumeroDaLista()
+    {
+        // Arrange
+        var lista = new List<int> { 1, 9, 3 };
+        var resultadoEsperado = 9;
+
+        // Act
+        var resultado = _validacoes.RetornarMaiorNumeroLista(lista);
+
+        // Assert
+        Assert.Equal(resultadoEsperado, resultado);
     }
 
     [Fact]
     public void DeveRetornarOitoNegativoComoMenorNumeroDaLista()
     {
-        //TODO: Implementar método de teste
-
         // Arrange
-        var lista = new List<int> { 5, -1, -8, 9 };
+        var lista = new List<int> { 1, -8, 3 };
+        var resultadoEsperado = -8;
 
         // Act
         var resultado = _validacoes.RetornarMenorNumeroLista(lista);
 
         // Assert
-        //TODO: Corrigir o Assert.Equal com base no retorno da chamada ao método
-        Assert.Equal(-8, -8);
+        Assert.Equal(resultadoEsperado, resultado);
     }
 }
+
+
+
+//implementar (sequência bash)
+//git config --global user.name "Thiago Vilar"
+//git config --global user.email "oceanocabral@gmail.com"
+//git status
+//git add .
+//git commit -m "Desafio concluído! // alteração em .csproj<TargetFramework>net8.0</TargetFramework>"
+//git push
